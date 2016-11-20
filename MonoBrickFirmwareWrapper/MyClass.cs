@@ -1,4 +1,6 @@
 ﻿using System;
+using MonoBrickFirmwareWrapper.Display;
+
 namespace MonoBrickFirmwareWrapper
 {
 	public class MyClass

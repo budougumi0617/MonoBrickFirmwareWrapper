@@ -33,7 +33,6 @@
     <Compile Include="Display\LcdConsoleWrapper.cs" />
     <Compile Include="MyClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Display\LcdConsoleWrapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\monoev3\MonoBrickFirmware\MonoBrickFirmware.csproj">
