@@ -2,7 +2,7 @@
 // LcdConsoleWrapper.cs
 //
 // Author:
-//       budougumi0617 <budougumi0617@gmail.com>
+//       Geroshabu
 //
 // Copyright (c) 2016 
 //
@@ -26,7 +26,7 @@
 using System;
 using MonoBrickFirmware.Display;
 
-namespace MonoBrickFirmwareWrapper
+namespace MonoBrickFirmwareWrapper.Display
 {
 	/// <summary>
 	/// A wrapper class of <see cref="LcdConsole"/>.
