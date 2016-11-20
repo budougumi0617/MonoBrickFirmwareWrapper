@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MonoBrickFirmwareWrapper.Display
 {
-	class LcdConsoleWrapper
+	static class LcdConsoleWrapper
 	{
 	}
 }
