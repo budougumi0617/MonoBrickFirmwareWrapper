@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonoBrickFirmwareWrapper", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonoBrickFirmware", "monoev3\MonoBrickFirmware\MonoBrickFirmware.csproj", "{67261E03-D263-4C42-A5AD-2A4820231B28}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonoBrickFirmwareWrapper.Tests", "MonoBrickFirmwareWrapper.Tests\MonoBrickFirmwareWrapper.Tests.csproj", "{CFF5D2A5-529F-4B05-AE64-F8CE3278A3E6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{67261E03-D263-4C42-A5AD-2A4820231B28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67261E03-D263-4C42-A5AD-2A4820231B28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67261E03-D263-4C42-A5AD-2A4820231B28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFF5D2A5-529F-4B05-AE64-F8CE3278A3E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFF5D2A5-529F-4B05-AE64-F8CE3278A3E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFF5D2A5-529F-4B05-AE64-F8CE3278A3E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFF5D2A5-529F-4B05-AE64-F8CE3278A3E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0
