@@ -8,7 +8,9 @@ platform: Any CPU
 before_build:
 - cmd: >-
     git submodule init
+
     git submodule update --init --recursive
+
     nuget restore MonoBrickFirmwareWrapper.sln
 build:
   project: MonoBrickFirmwareWrapper.sln
@@ -20,15 +22,23 @@ build:
 test_script:
 - ps: >-
     $opencover = (Resolve-Path "./packages/OpenCover.*/tools/OpenCover.Console.exe").ToString()
+
     $runner = (Resolve-Path ".\packages\xunit.runner.console.*\tools\xunit.console.x86.exe").ToString()
+
     $targetargs = """XUnitSample.Tests.dll"" -noshadow -appveyor"
+
     $filter = "+[CSharpTraining*]* -[XUnitSample.Tests*]*"
+
     & $opencover -register:user -target:$runner "-targetargs:$targetargs" -targetdir:$env:test_dll_dir "-filter:$filter" -returntargetcode -hideskipped:All -output:opencoverCoverage.xml
 
     $env:Path = "C:\Python34;C:\Python34\Scripts;$env:Path"
+
     python -m pip install --upgrade pip
+
     pip install codecov
+
     &{codecov -f "opencoverCoverage.xml"}
+
 notifications:
 - provider: GitHubPullRequest
   on_build_success: true
