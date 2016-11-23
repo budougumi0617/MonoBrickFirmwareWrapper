@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MonoBrickFirmwareWrapper.UserInput
 {
-	static class ButtonsWrapper
+	public static class ButtonsWrapper
 	{
 	}
 }
