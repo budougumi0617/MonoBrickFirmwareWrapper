@@ -34,6 +34,7 @@
     <Compile Include="MyClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Movement\IMotor.cs" />
+    <Compile Include="UserInput\ButtonsWrapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\monoev3\MonoBrickFirmware\MonoBrickFirmware.csproj">
