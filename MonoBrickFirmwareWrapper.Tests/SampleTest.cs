@@ -29,7 +29,7 @@ using NUnit.Framework;
 using Moq;
 using MonoBrickFirmwareWrapper;
 
-namespace NUnitSample.Tests
+namespace MonoBrickFirmwareWrapper.Tests
 {
 	/// <summary>
 	/// Sample test class
