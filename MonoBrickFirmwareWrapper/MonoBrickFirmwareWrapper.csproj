@@ -7,6 +7,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>MonoBrickFirmwareWrapper</RootNamespace>
     <AssemblyName>MonoBrickFirmwareWrapper</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
