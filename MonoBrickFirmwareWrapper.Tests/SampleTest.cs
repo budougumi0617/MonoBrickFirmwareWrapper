@@ -24,38 +24,46 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System;
-using MonoBrickFirmware.Movement;
+using MonoBrickFirmwareWrapper.Movement;
+using NUnit.Framework;
+using Moq;
 using MonoBrickFirmwareWrapper;
 
-namespace MonoBrickFirmware.Tests
+namespace NUnitSample.Tests
 {
 	/// <summary>
 	/// Sample test class
 	/// </summary>
-	/// <remarks>
-	/// It was described below URL how to use XUnit
-	/// https://xunit.github.io/docs/comparisons.html
+	/// <remarks>You can use NUnit console too. There is in below path.
+	/// .\packages\NUnit.Runners.2.6.4\tools\nunit.exe
 	/// </remarks>
+	[TestFixture]
 	public class MainClassTests
 	{
-		[Xunit.Fact(DisplayName = "We can describe test summary by this attribute."), Xunit.Trait("Category", "Sample")]
+		[Test, Description("We can describe test summary by this attribute."), Category("We can set test category by this attribute.")]
 		public void MainTest()
 		{
-			Xunit.Assert.True(true);
-			Xunit.Assert.Equal(10, MyClass.SampleMethod());
+			Assert.IsTrue(true);
+			Assert.AreEqual(1, 1);
 			var foo = new Object();
 			var same = foo;
-			Xunit.Assert.Same(foo, same); // Verify their variables are same object.
+			Assert.AreSame(foo, same); // Verify their variables are same object.
+			Assert.AreEqual(10, MyClass.SampleMethod());
 		}
 
 
-		[Xunit.Fact(Skip = "If you want to ignore test case, you set this attribute to the test case.")]
+		[Test, Description("If We confirm that the targert method throws an exeception, we use ExpectedException attribute.")]
+		[Explicit("If you want to ignore test case, you set this attribute to the test case.")]
 		public void IgnoreTest()
 		{
-			Xunit.Assert.True(false, "Expected this test case does not be executed.");
+			Assert.Fail("Expected this test case does not be executed.");
 			MyClass.Main(new string[] { "" });
-			Motor dummy = new Motor(MotorPort.OutA);
-			dummy.GetSpeed();
+			IMotor dummy = new Mock<IMotor>().Object;
+			dummy.Off();
+			Assert.Throws<InvalidOperationException>(() =>
+			{
+				throw new InvalidOperationException();
+			});
 		}
 	}
 }
