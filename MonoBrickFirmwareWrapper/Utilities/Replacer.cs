@@ -10,5 +10,9 @@ namespace MonoBrickFirmwareWrapper.Utilities
         public static void ReplacePrivateStaticField<T>(Type targetClassType, string fieldName, T fieldValue)
         {
         }
+
+        public static void RestorePrivateStaticField(Type targetClassType, string fieldName)
+        {
+        }
     }
 }
