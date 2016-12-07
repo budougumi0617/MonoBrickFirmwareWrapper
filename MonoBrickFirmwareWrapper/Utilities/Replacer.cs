@@ -7,5 +7,8 @@ namespace MonoBrickFirmwareWrapper.Utilities
 {
     public static class Replacer
     {
+        public static void ReplacePrivateStaticField<T>(Type targetClassType, string fieldName, T fieldValue)
+        {
+        }
     }
 }
