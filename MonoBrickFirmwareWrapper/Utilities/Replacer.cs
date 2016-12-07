@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MonoBrickFirmwareWrapper.Utilities
 {
-    class Replacer
+    static class Replacer
     {
     }
 }
