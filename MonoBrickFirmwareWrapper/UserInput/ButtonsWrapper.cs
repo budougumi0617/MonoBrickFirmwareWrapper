@@ -26,6 +26,7 @@
 using System;
 using System.Threading;
 using MonoBrickFirmware.UserInput;
+using MonoBrickFirmware.Display.Dialogs.UserInput;
 
 namespace MonoBrickFirmwareWrapper.UserInput
 {
@@ -34,34 +35,79 @@ namespace MonoBrickFirmwareWrapper.UserInput
 	/// </summary>
 	public static class ButtonsWrapper
 	{
+
+		private static readonly Func<Buttons.ButtonStates> getStates = Buttons.GetStates;
 		/// <summary>
 		/// A wrapper of <see cref="Buttons.GetStates"/>.
 		/// </summary>
-		public static Func<Buttons.ButtonStates> GetStates { get; } = Buttons.GetStates;
+		public static Func<Buttons.ButtonStates> GetStates
+		{
+			get
+			{
+				return getStates;
+			}
+		}
 
+		private static readonly Action<CancellationToken> waitForKeyReleaseCancelable = Buttons.WaitForKeyRelease;
 		/// <summary>
 		/// A wrapper of <see cref="Buttons.WaitForKeyRelease(CancellationToken)"/>.
 		/// </summary>
-		public static Action<CancellationToken> WaitForKeyReleaseCancelable { get; } = Buttons.WaitForKeyRelease;
+		public static Action<CancellationToken> WaitForKeyReleaseCancelable
+		{
+			get
+			{
+				return waitForKeyReleaseCancelable;
+			}
+		}
 
+		private static readonly Action waitForKeyRelease = Buttons.WaitForKeyRelease;
 		/// <summary>
 		/// A wrapper of <see cref="Buttons.WaitForKeyRelease"/>.
 		/// </summary>
-		public static Action WaitForKeyRelease { get; } = Buttons.WaitForKeyRelease;
+		public static Action WaitForKeyRelease
+		{
+			get
+			{
+				return waitForKeyRelease;
+			}
+		}
 
+
+		private static readonly Func<CancellationToken, Buttons.ButtonStates> getKeypressCancelable = Buttons.GetKeypress;
 		/// <summary>
 		/// A wrapper of <see cref="Buttons.GetKeypress(CancellationToken)"/>.
 		/// </summary>
-		public static Func<CancellationToken, Buttons.ButtonStates> GetKeypressCancelable { get; } = Buttons.GetKeypress;
+		public static Func<CancellationToken, Buttons.ButtonStates> GetKeypressCancelable
+		{
+			get
+			{
+				return getKeypressCancelable;
+			}
+		}
 
+
+		private static readonly Func<Buttons.ButtonStates> getKeypress = Buttons.GetKeypress;
 		/// <summary>
 		/// A wrapper of <see cref="Buttons.GetKeypress"/>.
 		/// </summary>
-		public static Func<Buttons.ButtonStates> GetKeypress { get; } = Buttons.GetKeypress;
+		public static Func<Buttons.ButtonStates> GetKeypress
+		{
+			get
+			{
+				return getKeypress;
+			}
+		}
 
+		private static readonly Action<int> ledPattern = Buttons.LedPattern;
 		/// <summary>
 		/// A wrapper of <see cref="Buttons.LedPattern(int)"/>
 		/// </summary>
-		public static Action<int> LedPattern { get; } = Buttons.LedPattern;
+		public static Action<int> LedPattern
+		{
+			get
+			{
+				return ledPattern;
+			}
+		}
 	}
 }
