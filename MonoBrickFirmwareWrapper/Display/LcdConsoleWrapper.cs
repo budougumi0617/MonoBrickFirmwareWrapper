@@ -40,14 +40,16 @@ namespace MonoBrickFirmwareWrapper.Display
 		/// <param name="arg">An array of objects to write using format.</param>
 		public delegate void WriteLineDelegate(string format, params object[] arg);
 
+		private static readonly WriteLineDelegate writeLine = LcdConsole.WriteLine;
 		/// <summary>
 		/// A wrapper of <see cref="LcdConsole.WriteLine"/>.
 		/// </summary>
-		public static WriteLineDelegate WriteLine { get; } = LcdConsole.WriteLine;
+		public static WriteLineDelegate WriteLine { get { return writeLine; } }
 
+		private static readonly Action clear = LcdConsole.Clear;
 		/// <summary>
 		/// A wrapper of <see cref="LcdConsole.Clear"/>.
 		/// </summary>
-		public static Action Clear { get; } = LcdConsole.Clear;
+		public static Action Clear { get { return clear; } }
 	}
 }
