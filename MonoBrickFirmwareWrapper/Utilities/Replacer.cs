@@ -39,6 +39,9 @@ namespace MonoBrickFirmwareWrapper.Utilities
         /// </exception>
         public static void ReplacePrivateStaticField<T>(Type targetClassType, string fieldName, T fieldValue)
         {
+            FieldInfo fieldInfo = targetClassType.GetField(fieldName,
+                BindingFlags.SetField | BindingFlags.NonPublic | BindingFlags.Static);
+            fieldInfo.SetValue(null, fieldValue);
         }
 
         /// <summary>
