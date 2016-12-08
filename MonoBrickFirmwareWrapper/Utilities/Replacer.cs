@@ -28,6 +28,16 @@ namespace MonoBrickFirmwareWrapper.Utilities
         {
         }
 
+        /// <summary>
+        /// <para>Restore the original value of a private static field of a specified class.</para>
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// If the field value hasn't been replaced or has been restored, this method do nothing.
+        /// </para>
+        /// </remarks>
+        /// <param name="targetClassType">The type of a class including a target private static field.</param>
+        /// <param name="fieldName">A target private static field name.</param>
         public static void RestorePrivateStaticField(Type targetClassType, string fieldName)
         {
         }
