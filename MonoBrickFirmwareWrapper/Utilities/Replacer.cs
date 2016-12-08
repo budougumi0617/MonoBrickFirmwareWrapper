@@ -5,6 +5,9 @@ using System.Text;
 
 namespace MonoBrickFirmwareWrapper.Utilities
 {
+    /// <summary>
+    /// An utility class to replace static fields of MonoBrickFirmwareWrapper.
+    /// </summary>
     public static class Replacer
     {
         /// <summary>
