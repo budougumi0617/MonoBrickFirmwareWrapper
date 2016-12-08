@@ -60,6 +60,7 @@ namespace MonoBrickFirmwareWrapper.Utilities
         /// <param name="fieldName">A target private static field name.</param>
         public static void RestorePrivateStaticField(Type targetClassType, string fieldName)
         {
+            string key = $"{targetClassType}+{fieldName}";
         }
     }
 }
