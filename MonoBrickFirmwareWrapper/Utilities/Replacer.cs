@@ -42,7 +42,9 @@ namespace MonoBrickFirmwareWrapper.Utilities
             string key = $"{targetClassType}+{fieldName}";
 
             FieldInfo fieldInfo = targetClassType.GetField(fieldName,
-                BindingFlags.SetField | BindingFlags.NonPublic | BindingFlags.Static);
+                BindingFlags.GetField | BindingFlags.SetField | BindingFlags.NonPublic | BindingFlags.Static);
+
+            originalFieldValues.Add(key, fieldInfo.GetValue(null));
             fieldInfo.SetValue(null, fieldValue);
         }
 
