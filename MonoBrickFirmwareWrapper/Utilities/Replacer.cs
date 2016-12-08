@@ -61,6 +61,10 @@ namespace MonoBrickFirmwareWrapper.Utilities
         public static void RestorePrivateStaticField(Type targetClassType, string fieldName)
         {
             string key = $"{targetClassType}+{fieldName}";
+
+            FieldInfo fieldInfo = targetClassType.GetField(fieldName,
+                BindingFlags.SetField | BindingFlags.NonPublic | BindingFlags.Static);
+            fieldInfo.SetValue(null, originalFieldValues[key]);
         }
     }
 }
