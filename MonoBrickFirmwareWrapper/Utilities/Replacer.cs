@@ -28,7 +28,7 @@ namespace MonoBrickFirmwareWrapper.Utilities
         /// <returns>a key of a specified field.</returns>
         private static string createKey(Type targetClassType, string fieldName)
         {
-            return $"{targetClassType}+{fieldName}";
+            return targetClassType + "+" + fieldName;
         }
 
         /// <summary>
