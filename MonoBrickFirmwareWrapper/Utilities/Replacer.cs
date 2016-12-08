@@ -20,6 +20,12 @@ namespace MonoBrickFirmwareWrapper.Utilities
         /// </summary>
         private static IDictionary<string, object> originalFieldValues = new Dictionary<string, object>();
 
+        /// <summary>a
+        /// Create a key of a specified field for the original value dictionary.
+        /// </summary>
+        /// <param name="targetClassType">The type of a class including a target private static field.</param>
+        /// <param name="fieldName">A target private static field name.</param>
+        /// <returns>a key of a specified field.</returns>
         private static string createKey(Type targetClassType, string fieldName)
         {
             return $"{targetClassType}+{fieldName}";
