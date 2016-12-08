@@ -51,6 +51,8 @@ namespace MonoBrickFirmwareWrapper.Utilities
         public static void ReplacePrivateStaticField<T>(Type targetClassType, string fieldName, T fieldValue)
         {
             string key = createKey(targetClassType, fieldName);
+            
+            if (originalFieldValues.ContainsKey(key)) { throw new InvalidOperationException(); }
 
             FieldInfo fieldInfo = targetClassType.GetField(fieldName,
                 BindingFlags.GetField | BindingFlags.SetField | BindingFlags.NonPublic | BindingFlags.Static);
