@@ -65,6 +65,8 @@ namespace MonoBrickFirmwareWrapper.Utilities
             FieldInfo fieldInfo = targetClassType.GetField(fieldName,
                 BindingFlags.SetField | BindingFlags.NonPublic | BindingFlags.Static);
             fieldInfo.SetValue(null, originalFieldValues[key]);
+
+            originalFieldValues.Remove(key);
         }
     }
 }
