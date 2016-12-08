@@ -20,6 +20,11 @@ namespace MonoBrickFirmwareWrapper.Utilities
         /// </summary>
         private static IDictionary<string, object> originalFieldValues = new Dictionary<string, object>();
 
+        private static string createKey(Type targetClassType, string fieldName)
+        {
+            return $"{targetClassType}+{fieldName}";
+        }
+
         /// <summary>
         /// <para>Replace a private static field value of a specified class.</para>
         /// <para>
@@ -39,7 +44,7 @@ namespace MonoBrickFirmwareWrapper.Utilities
         /// </exception>
         public static void ReplacePrivateStaticField<T>(Type targetClassType, string fieldName, T fieldValue)
         {
-            string key = $"{targetClassType}+{fieldName}";
+            string key = createKey(targetClassType, fieldName);
 
             FieldInfo fieldInfo = targetClassType.GetField(fieldName,
                 BindingFlags.GetField | BindingFlags.SetField | BindingFlags.NonPublic | BindingFlags.Static);
@@ -60,7 +65,7 @@ namespace MonoBrickFirmwareWrapper.Utilities
         /// <param name="fieldName">A target private static field name.</param>
         public static void RestorePrivateStaticField(Type targetClassType, string fieldName)
         {
-            string key = $"{targetClassType}+{fieldName}";
+            string key = createKey(targetClassType, fieldName);
 
             FieldInfo fieldInfo = targetClassType.GetField(fieldName,
                 BindingFlags.SetField | BindingFlags.NonPublic | BindingFlags.Static);
