@@ -10,6 +10,13 @@ namespace MonoBrickFirmwareWrapper.Utilities
     /// </summary>
     public static class Replacer
     {
+        /// <summary>
+        /// <para>An dictionary to store original values.</para>
+        /// <para>
+        /// The key is the field name with full qualifier name of class.
+        /// The value is the original value.
+        /// </para>
+        /// </summary>
         private static IDictionary<string, object> originalFieldValues = new Dictionary<string, object>();
 
         /// <summary>
