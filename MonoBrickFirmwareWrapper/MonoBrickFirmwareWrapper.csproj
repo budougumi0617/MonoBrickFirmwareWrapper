@@ -39,6 +39,7 @@
     <Compile Include="Movement\IMotor.cs" />
     <Compile Include="UserInput\ButtonsWrapper.cs" />
     <Compile Include="Utilities\Replacer.cs" />
+    <Compile Include="Display\Dialogs\InfoDialogWrapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\monoev3\MonoBrickFirmware\MonoBrickFirmware.csproj">
@@ -47,5 +48,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Display\Dialogs\" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
