@@ -9,9 +9,9 @@ coverage:
 
   status:
     project: yes
-    patch: yes
+    patch: no
     changes: no
-    threshold: 100% # Allow the coverage to drop by X% and posting a success status.
+    threshold: 0% # Allow the coverage to drop by X% and posting a success status.
 
 parsers:
   gcov:
