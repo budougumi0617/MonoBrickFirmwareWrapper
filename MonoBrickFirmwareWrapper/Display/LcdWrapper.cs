@@ -38,11 +38,11 @@ namespace MonoBrickFirmwareWrapper.Display
     /// </summary>
     public static class LcdWrapper
     {
-        private static readonly int width = Lcd.Width;
-        public static int Width { get { return width; } }
+        private static readonly Func<int> width = () => Lcd.Width;
+        public static int Width { get { return width(); } }
 
-        private static readonly int height = Lcd.Height;
-        public static int Height { get { return height; } }
+        private static readonly Func<int> height = () => Lcd.Height;
+        public static int Height { get { return height(); } }
 
         private static readonly Action<int, int, bool> setPixel = Lcd.SetPixel;
         public static Action<int, int, bool> SetPixel { get { return setPixel; } }
