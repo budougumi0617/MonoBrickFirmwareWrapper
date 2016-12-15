@@ -39,13 +39,18 @@
     <Compile Include="Movement\IMotor.cs" />
     <Compile Include="UserInput\ButtonsWrapper.cs" />
     <Compile Include="Utilities\Replacer.cs" />
+    <Compile Include="Display\Dialogs\InfoDialogWrapper.cs" />
+    <Compile Include="Display\Dialogs\IInfoDialog.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\monoev3\MonoBrickFirmware\MonoBrickFirmware.csproj">
-      <Project>{67261e03-d263-4c42-a5ad-2a4820231b28}</Project>
+      <Project>{67261E03-D263-4C42-A5AD-2A4820231B28}</Project>
       <Name>MonoBrickFirmware</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Display\Dialogs\" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
