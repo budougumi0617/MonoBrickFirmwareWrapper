@@ -9,8 +9,8 @@ coverage:
 
   status:
     project: yes
-    patch: no
-    changes: no
+    patch: yes
+    changes: yes
     threshold: 100% # Allow the coverage to drop by X% and posting a success status.
     target: 0% # Choose minimum coverage ratio the commit must meet to be considered a success status.
 
