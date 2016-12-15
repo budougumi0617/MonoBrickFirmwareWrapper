@@ -1,10 +1,10 @@
 ﻿//
-// InfoDialogWrapper.cs
+// IInfoDialog.cs
 //
 // Author:
-//       budougumi0617 <budougumi0617@gmail.com>
+//       z00s000723 <>
 //
-// Copyright (c) 2016 
+// Copyright (c) 2016 z00s000723
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -24,67 +24,24 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System;
-using MonoBrickFirmware.Display;
 using MonoBrickFirmware.Display.Dialogs;
 
 namespace MonoBrickFirmwareWrapper
 {
 
 	/// <summary>
-	/// Wrap InfoDialog
+	/// Wrap interfece for <see cref="InfoDialog"/>
 	/// </summary>
+	/// <seealso cref="MonoBrickFirmwareWrapper.Tests.Display.Dialogs.InfoDialogWrapperTest"/>
 	// UNDONE Add comments.
 	// UNDONE Need to validate logic by tests.
-	public class InfoDialogWrapper :IInfoDialog
+	public interface IInfoDialog
 	{
-		InfoDialog instance;
 
-		public InfoDialogWrapper(string message, string title)
-		{
-			instance = new InfoDialog (message,title);
-			// Set implementation from instance.
-			onShow = instance.OnShow;
-			onExit = instance.OnExit;
-			hide = instance.Hide;
-			show = instance.Show;
-		}
-
-		private Action onShow;
-		public Action OnShow
-		{
-			get
-			{
-				return onShow;
-			}
-			set
-			{
-				onShow += value;
-			}
-		}
-
-		private Action onExit;
-		public Action OnExit
-		{
-			get
-			{
-				return onExit;
-			}
-			set
-			{
-				onExit += value;
-			}
-		}
-
-		private readonly Func<bool> show;
-		public bool Show()
-		{
-			return show();
-		}
-
-		private readonly Action hide;
-		public void Hide()
-		{
-			hide();
-		}
+		Action OnShow{ get; set;}
+		Action OnExit{ get; set;}
+		bool Show();
+		void Hide();
 	}
 }
+

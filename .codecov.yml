@@ -11,7 +11,8 @@ coverage:
     project: yes
     patch: no
     changes: no
-    threshold: 0% # Allow the coverage to drop by X% and posting a success status.
+    threshold: 100% # Allow the coverage to drop by X% and posting a success status.
+    target: 0% # Choose minimum coverage ratio the commit must meet to be considered a success status.
 
 parsers:
   gcov:

@@ -1,5 +1,5 @@
 ﻿//
-// InfoDialogWrapper.cs
+// SampleTest.cs
 //
 // Author:
 //       budougumi0617 <budougumi0617@gmail.com>
@@ -23,68 +23,28 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
-using System;
-using MonoBrickFirmware.Display;
+
 using MonoBrickFirmware.Display.Dialogs;
+using Moq;
+using NUnit.Framework;
 
-namespace MonoBrickFirmwareWrapper
+namespace MonoBrickFirmwareWrapper.Tests.Display.Dialogs
 {
-
-	/// <summary>
-	/// Wrap InfoDialog
-	/// </summary>
-	// UNDONE Add comments.
-	// UNDONE Need to validate logic by tests.
-	public class InfoDialogWrapper :IInfoDialog
-	{
-		InfoDialog instance;
-
-		public InfoDialogWrapper(string message, string title)
-		{
-			instance = new InfoDialog (message,title);
-			// Set implementation from instance.
-			onShow = instance.OnShow;
-			onExit = instance.OnExit;
-			hide = instance.Hide;
-			show = instance.Show;
-		}
-
-		private Action onShow;
-		public Action OnShow
-		{
-			get
-			{
-				return onShow;
-			}
-			set
-			{
-				onShow += value;
-			}
-		}
-
-		private Action onExit;
-		public Action OnExit
-		{
-			get
-			{
-				return onExit;
-			}
-			set
-			{
-				onExit += value;
-			}
-		}
-
-		private readonly Func<bool> show;
-		public bool Show()
-		{
-			return show();
-		}
-
-		private readonly Action hide;
-		public void Hide()
-		{
-			hide();
-		}
-	}
+    [TestFixture]
+    class InfoDialogWrapperTest
+    {
+        [Test, Description("Mock of InfoDialog has not error.")]
+        public void InjectionTest()
+        {
+			var dummy = new Mock<IInfoDialog>();
+			dummy.Setup (id => id.OnShow).Returns (()=>{
+				System.Console.WriteLine ("Dummy OnShow.");
+			});
+			dummy.Setup (id => id.OnExit).Returns (()=>{
+				System.Console.WriteLine ("Dummy OnExit.");
+			});
+            var iid = new IncludeInfoDialog(dummy.Object); // Dependency Injection.
+            iid.dummyMethod();
+        }
+    }
 }
