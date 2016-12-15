@@ -82,6 +82,13 @@ namespace MonoBrickFirmwareWrapper.Utilities
             originalFieldValues.Remove(key);
         }
 
+		/// <summary>
+		/// <para>Set a value of a private instance field.</para>
+		/// </summary>
+		/// <typeparam name="T">The type of an instance including a target private instance field.</typeparam>
+		/// <param name="instance">An instance including a target private instance field.</param>
+		/// <param name="fieldName">A target private instance field name.</param>
+		/// <param name="value">A value that you want to set.</param>
 		public static void SetPrivateField<T>(this T instance, string fieldName, object value)
 		{
 			FieldInfo fieldInfo = typeof(T).GetField(fieldName,
@@ -89,6 +96,13 @@ namespace MonoBrickFirmwareWrapper.Utilities
 			fieldInfo.SetValue(instance, value);
 		}
 
+		/// <summary>
+		/// <para>Get a value of a private instance field.</para>
+		/// </summary>
+		/// <typeparam name="T">The type of an instance including a target private instance field.</typeparam>
+		/// <param name="instance">An instance including a target private instance field.</param>
+		/// <param name="fieldName">A target private instance field name.</param>
+		/// <returns>The value of the target private instance field.</returns>
 		public static object GetPrivateField<T>(this T instance, string fieldName)
 		{
 			FieldInfo fieldInfo = typeof(T).GetField(fieldName,
