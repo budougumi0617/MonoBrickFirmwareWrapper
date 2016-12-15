@@ -84,12 +84,16 @@ namespace MonoBrickFirmwareWrapper.Utilities
 
 		public static void SetPrivateField<T>(this T instance, string fieldName, object value)
 		{
-			throw new NotImplementedException();
+			FieldInfo fieldInfo = typeof(T).GetField(fieldName,
+				BindingFlags.SetField | BindingFlags.NonPublic | BindingFlags.Instance);
+			fieldInfo.SetValue(instance, value);
 		}
 
 		public static object GetPrivateField<T>(this T instance, string fieldName)
 		{
-			throw new NotImplementedException();
+			FieldInfo fieldInfo = typeof(T).GetField(fieldName,
+				BindingFlags.GetField | BindingFlags.NonPublic | BindingFlags.Instance);
+			return fieldInfo.GetValue(instance);
 		}
 
         /// <summary>
