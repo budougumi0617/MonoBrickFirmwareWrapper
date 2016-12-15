@@ -82,6 +82,16 @@ namespace MonoBrickFirmwareWrapper.Utilities
             originalFieldValues.Remove(key);
         }
 
+		public static void SetPrivateField<T>(this T instance, string fieldName, object value)
+		{
+			throw new NotImplementedException();
+		}
+
+		public static object GetPrivateField<T>(this T instance, string fieldName)
+		{
+			throw new NotImplementedException();
+		}
+
         /// <summary>
         /// Replace a wrapper method of MonoBrickFirmwareWrapper.
         /// </summary>
