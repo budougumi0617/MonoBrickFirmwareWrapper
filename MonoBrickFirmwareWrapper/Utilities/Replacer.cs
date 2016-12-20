@@ -110,6 +110,20 @@ namespace MonoBrickFirmwareWrapper.Utilities
 			return fieldInfo.GetValue(instance);
 		}
 
+		/// <summary>
+		/// <para>Invoke a private method.</para>
+		/// </summary>
+		/// <typeparam name="T">The type of an instance including a target private method.</typeparam>
+		/// <param name="instance">An instance including a target private method.</param>
+		/// <param name="methodName">A target private method name.</param>
+		/// <param name="parameters">An argument list for the invoked method.</param>
+		public static void InvokePrivateMethod<T>(this T instance, string methodName, object[] parameters)
+		{
+			MethodInfo methodInfo = typeof(T).GetMethod(methodName,
+				BindingFlags.InvokeMethod | BindingFlags.NonPublic | BindingFlags.Instance);
+			methodInfo.Invoke(instance, parameters);
+		}
+
         /// <summary>
         /// Replace a wrapper method of MonoBrickFirmwareWrapper.
         /// </summary>
