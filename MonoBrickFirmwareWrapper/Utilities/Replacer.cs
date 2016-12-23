@@ -117,11 +117,11 @@ namespace MonoBrickFirmwareWrapper.Utilities
 		/// <param name="instance">An instance including a target private method.</param>
 		/// <param name="methodName">A target private method name.</param>
 		/// <param name="parameters">An argument list for the invoked method.</param>
-		public static void InvokePrivateMethod<T>(this T instance, string methodName, object[] parameters)
+		public static Object InvokePrivateMethod<T>(this T instance, string methodName, object[] parameters)
 		{
 			MethodInfo methodInfo = typeof(T).GetMethod(methodName,
 				BindingFlags.InvokeMethod | BindingFlags.NonPublic | BindingFlags.Instance);
-			methodInfo.Invoke(instance, parameters);
+			return methodInfo.Invoke(instance, parameters);
 		}
 
         /// <summary>
