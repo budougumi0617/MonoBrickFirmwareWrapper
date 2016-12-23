@@ -28,6 +28,7 @@
     <Compile Include="Display\Dialogs\IncludeInfoDialog.cs" />
     <Compile Include="SampleTest.cs" />
     <Compile Include="Display\Dialogs\InfoDialogWrapperTest.cs" />
+    <Compile Include="Utilities\ReplacerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\monoev3\MonoBrickFirmware\MonoBrickFirmware.csproj">
@@ -53,6 +54,9 @@
       <HintPath>..\packages\Moq.4.0.10827\lib\NET40\Moq.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Utilities\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
